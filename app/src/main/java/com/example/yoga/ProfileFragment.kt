@@ -1,10 +1,11 @@
 package com.example.yoga
 
-import android.R
+
+import android.R.attr.data
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.BitmapFactory
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +16,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.yoga.databinding.FragmentProfileBinding
-import kotlinx.android.synthetic.main.fragment_profile.*
+import java.io.ByteArrayOutputStream
 
 
 class ProfileFragment : Fragment() {
@@ -52,6 +53,12 @@ class ProfileFragment : Fragment() {
             }
         }
         catch (e: java.lang.Exception) {
+            binding.apply {
+                etProfileName.setText("Name")
+                etProfileAge.setText("")
+                etProfileHeight.setText("")
+                etProfileWeight.setText("")
+            }
         }
     }
 
@@ -73,8 +80,18 @@ class ProfileFragment : Fragment() {
     private fun setImageButtonListener() {
         binding.apply {
             startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                if(it!=null)
-                    imgProfile.setImageURI(it.data?.data)
+                if(it!=null) {
+//                    imgProfile.setImageURI(it.data?.data)
+//                    val photo = it.data?.data
+//                    val baos = ByteArrayOutputStream()
+//                    photo.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+//                    val b: ByteArray = baos.toByteArray()
+//                    val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
+//                    preferenceManager.setString("image_data", encodedImage)
+                }
+
+
+
 
             }
             imgProfile.setOnClickListener {
@@ -88,14 +105,18 @@ class ProfileFragment : Fragment() {
 
     private fun editMode() {
         binding.apply {
-            fabProfileEdit.setImageResource(R.drawable.ic_)
+            fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
             etProfileName.isEnabled = true
             etProfileHeight.isEnabled = true
             etProfileWeight.isEnabled = true
             etProfileAge.isEnabled = true
-            tempAge = etProfileAge.text.toString().removeSuffix(" Y.os").toInt()
-            tempWeight = etProfileWeight.text.toString().removeSuffix(" Kg").toInt()
-            tempHeight = etProfileHeight.text.toString().removeSuffix(" Cm").toInt()
+            try {
+                tempAge = etProfileAge.text.toString().removeSuffix(" Y.os").toInt()
+                tempWeight = etProfileWeight.text.toString().removeSuffix(" Kg").toInt()
+                tempHeight = etProfileHeight.text.toString().removeSuffix(" Cm").toInt()
+            }
+            catch (e: Exception) {
+            }
             etProfileAge.setText(tempAge.toString())
             etProfileWeight.setText(tempWeight.toString())
             etProfileHeight.setText(tempHeight.toString())
@@ -105,10 +126,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun saveMode() {
-
-        val editS = context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
-
         binding.apply {
+            val editS = context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
             fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
             etProfileName.isEnabled = false
             etProfileHeight.isEnabled = false
