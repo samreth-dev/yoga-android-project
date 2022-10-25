@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">yoga</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="yogadetails">yogaDetails</string>
+    <string name="yogatitle">yogaTitle</string>
+
 </resources>
