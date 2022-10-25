@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_yoga.view.*
+import kotlinx.android.synthetic.main.yoga_type_list.*
 
 class YogaFragment : Fragment() {
     override fun onCreateView(
@@ -16,9 +17,28 @@ class YogaFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_yoga, container, false)
         // Inflate the layout for this fragment
         val yogas = ArrayList<Yoga>()
-        yogas.add(Yoga("ASANA Yoga for Beginners", "Slower paced and focuses on developing clear and safe alignment in foundational poses", R.drawable.beginner))
-        yogas.add(Yoga("ASANA Yoga for Intermediates", "More physically challenging than beginner yoga and multi level.", R.drawable.intermediate))
-        yogas.add(Yoga("Yoga for Advanced", "The lesson will be more athletic and move through asana at a fast pace, with very little instruction.", R.drawable.advanced))
+
+        yogas.add(
+            Yoga(
+                "Beginners",
+                "Slower paced to develop clear safe alignment in basic poses.",
+                ArrayList()
+            )
+        )
+        yogas.add(
+            Yoga(
+                "Intermediates",
+                "More physically challenging than beginner yoga and multi level.",
+                ArrayList()
+            )
+        )
+        yogas.add(
+            Yoga(
+                "Advanced",
+                "More athletic move through asana at a fast pace, with no instruction.",
+                ArrayList()
+            )
+        )
 
 
         view.recyclerView1.layoutManager = LinearLayoutManager(context)
@@ -26,9 +46,13 @@ class YogaFragment : Fragment() {
         view.recyclerView1.adapter = adapter
 
         //when clicked go to video fragment
-        val vfragment = VideoFragment()
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.frameLayout, vfragment)
-            ?.commit()
+        adapter.onItemClick = { yoga ->
+            val fragment = VideoFragment.newInstance(yoga)
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
 
         return view
     }
