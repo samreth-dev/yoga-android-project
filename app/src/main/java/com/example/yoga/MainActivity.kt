@@ -1,6 +1,7 @@
 package com.example.yoga
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -29,19 +30,23 @@ class MainActivity : AppCompatActivity() {
         mnavController = navHostFragment.navController
 
         bnvMain.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.navBtnSetting -> {
-                    val current = mnavController.currentDestination?.id
-                    if (current == R.id.articleFragment) {
-                        mnavController.navigate(R.id.action_articleFragment_to_profileFragment)
+            try {
+                when (it.itemId) {
+                    R.id.navBtnSetting -> {
+                        val current = mnavController.currentDestination?.id
+                        if (current == R.id.articleFragment) {
+                            mnavController.navigate(R.id.action_articleFragment_to_profileFragment)
+                        }
+                        else if (current == R.id.articleDetailFragment){
+                            mnavController.navigate(R.id.action_articleDetailFragment_to_profileFragment)
+                        }
                     }
-                    else if (current == R.id.articleDetailFragment){
-                        mnavController.navigate(R.id.action_articleDetailFragment_to_profileFragment)
+                    R.id.navBtnArticle -> {
+                        mnavController.navigate(R.id.action_profileFragment_to_articleFragment)
                     }
                 }
-                R.id.navBtnArticle -> {
-                    mnavController.navigate(R.id.action_profileFragment_to_articleFragment)
-                }
+            }
+            catch (e: Exception) {
             }
             true
         }
