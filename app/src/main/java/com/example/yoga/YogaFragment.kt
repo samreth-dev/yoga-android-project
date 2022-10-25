@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_yoga.view.*
 import kotlinx.android.synthetic.main.yoga_type_list.*
 
@@ -16,18 +17,30 @@ class YogaFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_yoga, container, false)
         // Inflate the layout for this fragment
+        val gson = Gson()
+
         val yogas = ArrayList<Yoga>()
+        var prefs = activity?.getSharedPreferences("yoga", 0)
+        var editor = prefs?.edit()
+        Yoga(
+            "Beginner",
+            "Slower paced to develop clear safe alignment in basic poses.",
+            listOf(Video("Yayyy", "video1"), Video("Yayyy2", "video2"))
+        ).apply {
+            editor?.putString("beginner", gson.toJson(this).toString())
+            editor?.apply()
+        }
 
         yogas.add(
             Yoga(
-                "Beginners",
+                "Beginner",
                 "Slower paced to develop clear safe alignment in basic poses.",
                 ArrayList()
             )
         )
         yogas.add(
             Yoga(
-                "Intermediates",
+                "Intermediate",
                 "More physically challenging than beginner yoga and multi level.",
                 ArrayList()
             )
@@ -53,7 +66,6 @@ class YogaFragment : Fragment() {
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
-
         return view
     }
 

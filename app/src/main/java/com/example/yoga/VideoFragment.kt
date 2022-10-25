@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_video.view.*
 
 private const val ARG_PARAM1 = "yoga"
 
@@ -23,18 +25,23 @@ class VideoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_video, container, false)
-        // Inflate the layout for this fragment
-
-        val videos = ArrayList<Video>()
-        videos.add(Video("Yoga for Beginners", R.raw.video1))
-        videos.add(Video("Yoga for Intermediates", R.raw.video2))
+        val view = inflater.inflate(R.layout.fragment_video, container, false)
 
         Toast.makeText(context, yoga?.title, Toast.LENGTH_SHORT).show()
+
+        val mediaController = MediaController(context)
+        val videoView1 = view.videoView1
+        mediaController.setAnchorView(videoView1)
+        videoView1.setMediaController(mediaController)
+
+        val rawId = resources.getIdentifier("video1", "raw", context?.packageName)
+
+        videoView1.setVideoPath("android.resource://" + activity?.packageName + "/" + rawId)
+        videoView1.start()
         return view
 
-
     }
+
 
     companion object {
         @JvmStatic
