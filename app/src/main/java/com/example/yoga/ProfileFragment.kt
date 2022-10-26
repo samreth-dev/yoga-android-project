@@ -78,7 +78,7 @@ class ProfileFragment : Fragment() {
 
     private fun setEditButtonListener() {
         viewF.apply {
-            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(107,197, 237))
+            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(10,34, 27))
             fabProfileEdit.setOnClickListener {
                 isEdited = !isEdited
                 if (isEdited) {
@@ -139,7 +139,7 @@ class ProfileFragment : Fragment() {
     private fun saveMode() {
         viewF.apply {
             val editS = viewF.context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
-            fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
+            fabProfileEdit.setImageResource(R.drawable.ic_edit)
             etProfileName.isEnabled = false
             etProfileHeight.isEnabled = false
             etProfileWeight.isEnabled = false
@@ -157,7 +157,7 @@ class ProfileFragment : Fragment() {
             }
             catch (e: Exception) {
             }
-            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(107,197, 237))
+            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(10,34, 27))
             Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show()
         }
     }
