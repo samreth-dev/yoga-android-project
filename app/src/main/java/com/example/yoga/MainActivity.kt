@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
         var manager = supportFragmentManager
         var transaction = manager.beginTransaction()
         transaction.add(R.id.fcvMain, ArticleFragment())
