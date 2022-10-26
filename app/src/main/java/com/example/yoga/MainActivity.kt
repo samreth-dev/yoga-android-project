@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
                         transaction.replace(R.id.fcvMain, CalorieLostFragment())
                         transaction.commit()
                     }
+                    R.id.navBtnYoga -> {
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, YogaFragment())
+                        transaction.commit()
+                    }
                 }
             }
             catch (e: Exception) {
