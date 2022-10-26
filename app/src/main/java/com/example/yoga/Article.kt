@@ -31,5 +31,4 @@ data class Article(var title: String, var source: String, var link: String = "")
             Article("Top 10 foods for health", "UCSF Health", "https://www.ucsfhealth.org/education/top-ten-foods-for-health")
         )
     }
-
 }
