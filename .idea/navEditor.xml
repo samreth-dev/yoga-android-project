@@ -4,13 +4,11 @@
     <option name="myPositions">
       <map>
         <entry key="app_navigation.xml">
-
           <value>
             <LayoutPositions>
               <option name="myPositions">
                 <map>
                   <entry key="articleDetailFragment">
-
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -19,20 +17,10 @@
                             <option name="y" value="130" />
                           </Point>
                         </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_articleDetailFragment_to_profileFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
                   <entry key="articleFragment">
-
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -41,19 +29,17 @@
                             <option name="y" value="131" />
                           </Point>
                         </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_articleFragment_to_articleDetailFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_articleFragment_to_profileFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="calorieLostFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-23" />
+                            <option name="y" value="497" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -65,7 +51,6 @@
                           <Point>
                             <option name="x" value="-67" />
                             <option name="y" value="-227" />
-
                           </Point>
                         </option>
                       </LayoutPositions>
