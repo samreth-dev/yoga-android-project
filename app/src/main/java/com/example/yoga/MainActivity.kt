@@ -1,5 +1,11 @@
 package com.example.yoga
 
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.res.ColorStateList
@@ -16,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
+
 class MainActivity : AppCompatActivity() {
 
     private var isEdited = false
@@ -25,9 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val navHostFragment =
-//            supportFragmentManager.findFragmentById(R.id.fcvMain) as NavHostFragment
-//        mnavController = navHostFragment.navController
+
 
         var manager = supportFragmentManager
         var transaction = manager.beginTransaction()
@@ -61,5 +66,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
 
 }
