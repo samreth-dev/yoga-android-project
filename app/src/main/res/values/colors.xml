@@ -8,8 +8,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="yoga_green">#9FCD6A</color>
 
-    <color name="teal_700">#FF9898</color>
-
     <color name="black">#FF000000</color>
     <color name="yoga_light_beige">#F5F5F5</color>
     <color name="white">#FFFFFFFF</color>
@@ -22,5 +20,9 @@
     <color name="app_action_color">#0A221B</color>
     <color name="app_secondary_color">#1E4E29</color>
     <color name="app_primary_color">#6BBD60</color>
+
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="gradient_start_color">#4c84ff</color>
+    <color name="gradient_end_color">#18a3fe</color>
 </resources>
 
