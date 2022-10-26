@@ -50,6 +50,12 @@ class MainActivity : AppCompatActivity() {
                         transaction.replace(R.id.fcvMain, YogaFragment())
                         transaction.commit()
                     }
+
+                    R.id.navBtnStatistic -> {
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, StatisticsFragment())
+                        transaction.commit()
+                    }
                 }
             }
             catch (e: Exception) {
