@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="0"
     android:orientation="vertical"
-    tools:context=".ArticleFragment">
+    tools:context=".ArticleDetail">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -20,27 +19,26 @@
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="@string/article_fragment_title"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnArticle"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/white"
+                android:elevation="20dp"
+                android:text="@string/article_back_btn"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp"
+                app:icon="@drawable/ic_back"
+                app:iconTint="@color/black" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvArticle"
+    <WebView
+        android:id="@+id/wvDetailArticle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_weight="1" />
 
 </LinearLayout>

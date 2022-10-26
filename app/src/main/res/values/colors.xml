@@ -18,4 +18,8 @@
     <color name="gray">#A6B4BA</color>
     <color name="sample_background">#6BC5ED</color>
     <color name="sec_sample_background">#A8E4FF</color>
+
+    <color name="app_action_color">#0A221B</color>
+    <color name="app_secondary_color">#1E4E29</color>
+    <color name="app_primary_color">#6BBD60</color>
 </resources>

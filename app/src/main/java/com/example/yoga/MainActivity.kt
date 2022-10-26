@@ -32,35 +32,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navBtnYoga()
-    }
-
-    fun navBtnYoga() {
-        // set yoga fragment to frame view
-        val fragment = YogaFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
-    }
 
 
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fcvMain) as NavHostFragment
-        mnavController = navHostFragment.navController
-
+        var manager = supportFragmentManager
+        var transaction = manager.beginTransaction()
+        transaction.add(R.id.fcvMain, ArticleFragment())
+        transaction.commit()
         bnvMain.setOnItemSelectedListener {
             try {
                 when (it.itemId) {
                     R.id.navBtnSetting -> {
-                        val current = mnavController.currentDestination?.id
-                        if (current == R.id.articleFragment) {
-                            mnavController.navigate(R.id.action_articleFragment_to_profileFragment)
-                        }
-                        else if (current == R.id.articleDetailFragment){
-                            mnavController.navigate(R.id.action_articleDetailFragment_to_profileFragment)
-                        }
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, ProfileFragment())
+                        transaction.commit()
+//                        val current = mnavController.currentDestination?.id
+//                        if (current == R.id.articleFragment) {
+//                            mnavController.navigate(R.id.action_articleFragment_to_profileFragment)
+//                        }
+//                        else if (current == R.id.articleDetailFragment){
+//                            mnavController.navigate(R.id.action_articleDetailFragment_to_profileFragment)
+//                        }
                     }
                     R.id.navBtnArticle -> {
-                        mnavController.navigate(R.id.action_profileFragment_to_articleFragment)
+//                        mnavController.navigate(R.id.action_profileFragment_to_articleFragment)
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, ArticleFragment())
+                        transaction.commit()
                     }
                 }
             }
@@ -68,7 +65,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
 

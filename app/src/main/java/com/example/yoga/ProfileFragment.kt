@@ -16,37 +16,45 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.example.yoga.databinding.FragmentProfileBinding
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.ByteArrayOutputStream
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    //private lateinit var binding: FragmentProfileBinding
     private lateinit var startforResultGalley : ActivityResultLauncher<Intent>
     private var encodedImg = ""
     private var isEdited = false
     private var tempAge = 0
     private var tempWeight = 0
     private var tempHeight = 0
+    private lateinit var viewF: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        viewF =  inflater.inflate(R.layout.fragment_profile, container, false)
 
         initSP()
         setImageButtonListener()
         setEditButtonListener()
 
-        return binding.root
+        return viewF
+//        binding = FragmentProfileBinding.inflate(inflater, container, false)
+//
+//        initSP()
+//        setImageButtonListener()
+//        setEditButtonListener()
+//
+//        return binding.root
     }
 
     private fun initSP() {
         try {
-            binding.apply {
-                var getS = context?.getSharedPreferences("profile", MODE_PRIVATE)
+            viewF.apply {
+                var getS = viewF.context.getSharedPreferences("profile", MODE_PRIVATE)
                 etProfileName.setText(getS?.getString("name", ""))
                 etProfileAge.setText(getS?.getString("age", ""))
                 etProfileHeight.setText(getS?.getString("height", ""))
@@ -59,7 +67,7 @@ class ProfileFragment : Fragment() {
             }
         }
         catch (e: java.lang.Exception) {
-            binding.apply {
+            viewF.apply {
                 etProfileName.setText("Name")
                 etProfileAge.setText("")
                 etProfileHeight.setText("")
@@ -69,8 +77,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setEditButtonListener() {
-        binding.apply {
-            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(107,197, 237))
+        viewF.apply {
+            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(10,34, 27))
             fabProfileEdit.setOnClickListener {
                 isEdited = !isEdited
                 if (isEdited) {
@@ -84,7 +92,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setImageButtonListener() {
-        binding.apply {
+        viewF.apply {
             startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if(it!=null) {
                     val img = it.data?.data
@@ -107,7 +115,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun editMode() {
-        binding.apply {
+        viewF.apply {
             fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
             etProfileName.isEnabled = true
             etProfileHeight.isEnabled = true
@@ -129,9 +137,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun saveMode() {
-        binding.apply {
-            val editS = context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
-            fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
+        viewF.apply {
+            val editS = viewF.context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
+            fabProfileEdit.setImageResource(R.drawable.ic_edit)
             etProfileName.isEnabled = false
             etProfileHeight.isEnabled = false
             etProfileWeight.isEnabled = false
@@ -149,8 +157,9 @@ class ProfileFragment : Fragment() {
             }
             catch (e: Exception) {
             }
-            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(107,197, 237))
+            fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(10,34, 27))
             Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

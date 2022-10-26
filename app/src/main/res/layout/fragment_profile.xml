@@ -43,7 +43,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
+            app:cardBackgroundColor="@color/app_primary_color"
             app:cardCornerRadius="10dp">
 
             <EditText
@@ -73,7 +73,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
+            app:cardBackgroundColor="@color/app_primary_color"
             app:cardCornerRadius="10dp">
 
             <EditText
@@ -102,7 +102,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
+            app:cardBackgroundColor="@color/app_primary_color"
             app:cardCornerRadius="10dp">
 
             <EditText
@@ -131,7 +131,7 @@
             android:layout_height="60sp"
             android:layout_gravity="center"
             android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
+            app:cardBackgroundColor="@color/app_primary_color"
             app:cardCornerRadius="10dp">
 
             <EditText
@@ -156,13 +156,15 @@
             android:layout_height="50dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:tint="@color/white"
             android:id="@+id/fabProfileEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:src="@drawable/ic_edit"
-            app:backgroundTint="@color/sample_background" />
+            android:tint="#FFFFFF"
+            app:backgroundTint="@color/app_action_color" />
 
         <Space
             android:layout_width="match_parent"
