@@ -1,5 +1,11 @@
 package com.example.yoga
 
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.res.ColorStateList
@@ -16,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
+
 class MainActivity : AppCompatActivity() {
 
     private var isEdited = false
@@ -24,6 +31,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        navBtnYoga()
+    }
+
+    fun navBtnYoga() {
+        // set yoga fragment to frame view
+        val fragment = YogaFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
+    }
+
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcvMain) as NavHostFragment
@@ -52,5 +70,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
 }
