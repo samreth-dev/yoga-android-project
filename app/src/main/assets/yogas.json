@@ -1,0 +1,50 @@
+{
+  "yogas": [
+    {
+      "details": "Slower paced to develop clear safe alignment in basic poses.",
+      "title": "Beginner",
+      "video": [
+        {
+          "name": "v1",
+          "videoFileName": "video1"
+        },
+        {
+          "name": "v2",
+          "videoFileName": "video2"
+        },
+        {
+          "name": "v3",
+          "videoFileName": "video3"
+        }
+      ]
+    },
+    {
+      "details": "A little faster paced to develop strength and flexibility.",
+      "title": "Intermediate",
+      "video": [
+        {
+          "name": "v4",
+          "videoFileName": "video4"
+        },
+        {
+          "name": "v5",
+          "videoFileName": "video5"
+        },
+        {
+          "name": "v6",
+          "videoFileName": "video6"
+        }
+      ]
+    },
+    {
+      "details": "More athletic move through asana at a fast pace, with no instructions",
+      "title": "Advanced",
+      "video": [
+        {
+          "name": "v9",
+          "videoFileName": "video9"
+        }
+      ]
+    }
+  ]
+}

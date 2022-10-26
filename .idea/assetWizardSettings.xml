@@ -28,6 +28,11 @@
 
                                       <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/arrow_forward/baseline_arrow_forward_24.xml" />
 
+
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/person/baseline_person_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/chevron_right/baseline_chevron_right_24.xml" />
+
+
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -40,6 +45,11 @@
                             <entry key="outputName" value="ic_baseline_save_as_24" />
 
                             <entry key="outputName" value="ic_baseline_arrow_forward_24" />
+
+                            <entry key="outputName" value="ic_profile" />
+
+                            <entry key="outputName" value="ic_baseline_chevron_right_24" />
+                            <entry key="sourceFile" value="C:\Users\silva\Downloads\meditation_logo.svg" />
 
                           </map>
                         </option>
