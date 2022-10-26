@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">yoga</string>
+    <string name="turkish">Türkçe</string>
+    <string name="arabic">Arapça</string>
+    <string name="english">İngilizce</string>
+    <string name="khmer">Khmerce</string>
+    <string name="theme">Tema</string>
+    <string name="language">Dil</string>
+    <string name="settings">Ayarlar</string>
+    <string name="dark_theme">Karanlık Tema</string>
+    <string name="light_theme">Aydınlık Tema</string>
+    <string name="save">Kaydet</string>
+</resources>

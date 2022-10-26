@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Locales">
+        <item>en</item>
+        <item>tr</item>
+    </string-array>
+</resources>
