@@ -1,6 +1,7 @@
 package com.example.yoga
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 
+import com.google.gson.stream.JsonReader
+
 import kotlinx.android.synthetic.main.fragment_yoga.view.*
 import kotlinx.android.synthetic.main.yoga_type_list.*
+import java.io.StringReader
 
 class YogaFragment : Fragment() {
     override fun onCreateView(
@@ -21,38 +25,12 @@ class YogaFragment : Fragment() {
         val gson = Gson()
 
         val yogas = ArrayList<Yoga>()
-        var prefs = activity?.getSharedPreferences("yoga", 0)
-        var editor = prefs?.edit()
-        Yoga(
-            "Beginner",
-            "Slower paced to develop clear safe alignment in basic poses.",
-            listOf(Video("Yayyy", "video1"), Video("Yayyy2", "video2"))
-        ).apply {
-            editor?.putString("beginner", gson.toJson(this).toString())
-            editor?.apply()
-        }
 
-        yogas.add(
-            Yoga(
-                "Beginner",
-                "Slower paced to develop clear safe alignment in basic poses.",
-                ArrayList()
-            )
-        )
-        yogas.add(
-            Yoga(
-                "Intermediate",
-                "More physically challenging than beginner yoga and multi level.",
-                ArrayList()
-            )
-        )
-        yogas.add(
-            Yoga(
-                "Advanced",
-                "More athletic move through asana at a fast pace, with no instruction.",
-                ArrayList()
-            )
-        )
+        val yogaJson = gson.fromJson<YogaJSON>(activity?.assets?.open("yogas.json")?.bufferedReader(), YogaJSON::class.java)
+
+        yogaJson.yogas.forEach {
+            yogas.add(it)
+        }
 
 
         view.recyclerView1.layoutManager = LinearLayoutManager(context)
