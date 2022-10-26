@@ -1,14 +1,5 @@
 <resources>
-
-    <string name="app_name">yoga</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="yogadetails">yogaDetails</string>
-    <string name="yogatitle">yogaTitle</string>
-
-</resources>
-
     <string name="app_name">Yoga</string>
-
     <string name="article_fragment_title"> YOGA AND HEALTH</string>
     <string name="article_back_btn">ARTICLES</string>
     <string name="profile_name">Emma Jason</string>
@@ -19,6 +10,6 @@
     <string name="profile_height_hint">Height</string>
     <string name="profile_weight">45 Kg</string>
     <string name="profile_weight_hint">Weight</string>
-
+    <string name="yogadetails">yogaDetails</string>
+    <string name="yogatitle">yogaTitle</string>
 </resources>
-

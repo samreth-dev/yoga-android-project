@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+
 import kotlinx.android.synthetic.main.fragment_yoga.view.*
 import kotlinx.android.synthetic.main.yoga_type_list.*
 
@@ -62,7 +63,7 @@ class YogaFragment : Fragment() {
         adapter.onItemClick = { yoga ->
             val fragment = VideoFragment.newInstance(yoga)
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.replace(R.id.fcvMain, fragment)
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
