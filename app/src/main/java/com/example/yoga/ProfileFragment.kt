@@ -1,13 +1,14 @@
 package com.example.yoga
 
-
-import android.R.attr.data
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,11 +19,11 @@ import androidx.fragment.app.Fragment
 import com.example.yoga.databinding.FragmentProfileBinding
 import java.io.ByteArrayOutputStream
 
-
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var startforResultGalley : ActivityResultLauncher<Intent>
+    private var encodedImg = ""
     private var isEdited = false
     private var tempAge = 0
     private var tempWeight = 0
@@ -35,8 +36,8 @@ class ProfileFragment : Fragment() {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        setImageButtonListener()
         initSP()
+        setImageButtonListener()
         setEditButtonListener()
 
         return binding.root
@@ -50,6 +51,11 @@ class ProfileFragment : Fragment() {
                 etProfileAge.setText(getS?.getString("age", ""))
                 etProfileHeight.setText(getS?.getString("height", ""))
                 etProfileWeight.setText(getS?.getString("weight", ""))
+                encodedImg = getS?.getString("img", "").toString()
+                val decodedString: ByteArray = Base64.decode(encodedImg, Base64.DEFAULT)
+                val bitmapImg =
+                    BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+                imgProfile.setImageBitmap(bitmapImg)
             }
         }
         catch (e: java.lang.Exception) {
@@ -81,18 +87,15 @@ class ProfileFragment : Fragment() {
         binding.apply {
             startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if(it!=null) {
-//                    imgProfile.setImageURI(it.data?.data)
-//                    val photo = it.data?.data
-//                    val baos = ByteArrayOutputStream()
-//                    photo.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-//                    val b: ByteArray = baos.toByteArray()
-//                    val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
-//                    preferenceManager.setString("image_data", encodedImage)
+                    val img = it.data?.data
+                    val bitmapImg =
+                        MediaStore.Images.Media.getBitmap(context?.getContentResolver(), img)
+                    imgProfile.setImageBitmap(bitmapImg)
+                    val baos = ByteArrayOutputStream()
+                    bitmapImg.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                    val b = baos.toByteArray()
+                    encodedImg = android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
                 }
-
-
-
-
             }
             imgProfile.setOnClickListener {
                 val i = Intent()
@@ -141,6 +144,7 @@ class ProfileFragment : Fragment() {
                 editS?.putString("age", etProfileAge.text.toString())
                 editS?.putString("height", etProfileHeight.text.toString())
                 editS?.putString("weight", etProfileWeight.text.toString())
+                editS?.putString("img", encodedImg)
                 editS?.commit()
             }
             catch (e: Exception) {
