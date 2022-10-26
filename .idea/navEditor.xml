@@ -4,11 +4,13 @@
     <option name="myPositions">
       <map>
         <entry key="app_navigation.xml">
+
           <value>
             <LayoutPositions>
               <option name="myPositions">
                 <map>
                   <entry key="articleDetailFragment">
+
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -30,6 +32,7 @@
                     </value>
                   </entry>
                   <entry key="articleFragment">
+
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -62,6 +65,7 @@
                           <Point>
                             <option name="x" value="-67" />
                             <option name="y" value="-227" />
+
                           </Point>
                         </option>
                       </LayoutPositions>
