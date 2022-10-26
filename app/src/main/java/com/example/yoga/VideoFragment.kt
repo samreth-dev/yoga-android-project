@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_video.view.*
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,7 @@ import kotlin.system.measureTimeMillis
 
 
 private const val ARG_PARAM1 = "yoga"
-private const val VIDEO_HOST = "http://silvanaishak.github.io/mdpVideos/"
+private const val VIDEO_HOST = "https://silvanaishak.github.io/mdpVideos/"
 private const val VIDEO_EXTENSION = ".mp4"
 
 class VideoFragment : Fragment() {
@@ -43,7 +44,6 @@ class VideoFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_video, container, false)
 
-        Toast.makeText(context, yoga?.title, Toast.LENGTH_SHORT).show()
         mediaController = MediaController(context)
         videoView = view.videoView
         mediaController.setAnchorView(videoView)
@@ -96,11 +96,11 @@ class VideoFragment : Fragment() {
     }
 
     fun onVideosFinished() {
-        Toast.makeText(
-            context,
-            "You've finished ${yoga!!.title} successfully!",
-            Toast.LENGTH_SHORT
-        ).show()
+        context?.let {
+            AlertDialog.Builder(it)
+                .setTitle("GREAT JOB!")
+                .setMessage("You've finished ${yoga!!.title} successfully!").show()
+        }
         activity?.onBackPressed()
     }
 
@@ -117,6 +117,7 @@ class VideoFragment : Fragment() {
 
     fun playPreviousVideo() {
         if (currentVideoIndex - 1 < 0) {
+            activity?.onBackPressed()
             return
         }
         currentVideoIndex--

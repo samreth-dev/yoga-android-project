@@ -25,36 +25,6 @@ class YogaFragment : Fragment() {
         val gson = Gson()
 
         val yogas = ArrayList<Yoga>()
-//        var prefs = activity?.getSharedPreferences("yoga", 0)
-//        var editor = prefs?.edit()
-//        Yoga(
-//            "Beginner",
-//            "Slower paced to develop clear safe alignment in basic poses.",
-//            listOf(Video("v1", "video1"), Video("v2", "video2"),
-//                Video("v3", "video3"))
-//        ).apply {
-//            editor?.putString("beginner", gson.toJson(this).toString())
-//            editor?.apply()
-//        }
-//
-//        Yoga(
-//            "Intermediate",
-//            "A little faster paced to develop strength and flexibility.",
-//            listOf(Video("v4", "video4"), Video("v5", "video5"),
-//                Video("v6", "video6"))
-//        ).apply {
-//            editor?.putString("intermediate", gson.toJson(this).toString())
-//            editor?.apply()
-//        }
-//
-//        Yoga(
-//            "Advanced",
-//            "A little faster paced to develop strength and flexibility.",
-//            listOf(Video("v9", "video9"))
-//        ).apply {
-//            editor?.putString("advanced", gson.toJson(this).toString())
-//            editor?.apply()
-//        }
 
         val yogaJson = gson.fromJson<YogaJSON>(activity?.assets?.open("yogas.json")?.bufferedReader(), YogaJSON::class.java)
 
