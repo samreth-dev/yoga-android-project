@@ -15,13 +15,7 @@
         {
           "name": "v3",
           "videoFileName": "video3"
-        }
-      ]
-    },
-    {
-      "details": "A little faster paced to develop strength and flexibility.",
-      "title": "Intermediate",
-      "video": [
+        },
         {
           "name": "v4",
           "videoFileName": "video4"
@@ -29,10 +23,25 @@
         {
           "name": "v5",
           "videoFileName": "video5"
-        },
+        }
+
+      ]
+    },
+    {
+      "details": "A little faster paced to develop strength and flexibility.",
+      "title": "Intermediate",
+      "video": [
         {
           "name": "v6",
           "videoFileName": "video6"
+        },
+        {
+          "name": "v7",
+          "videoFileName": "video7"
+        },
+        {
+          "name": "v8",
+          "videoFileName": "video8"
         }
       ]
     },
@@ -41,8 +50,8 @@
       "title": "Advanced",
       "video": [
         {
-          "name": "v9",
-          "videoFileName": "video9"
+          "name": "v10",
+          "videoFileName": "video10"
         }
       ]
     }

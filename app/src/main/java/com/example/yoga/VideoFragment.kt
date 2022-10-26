@@ -3,13 +3,14 @@ package com.example.yoga
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
-import android.os.CountDownTimer
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_video.view.*
 import kotlinx.coroutines.Dispatchers
@@ -43,7 +44,6 @@ class VideoFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_video, container, false)
 
-        Toast.makeText(context, yoga?.title, Toast.LENGTH_SHORT).show()
         mediaController = MediaController(context)
         videoView = view.videoView
         mediaController.setAnchorView(videoView)
@@ -96,11 +96,11 @@ class VideoFragment : Fragment() {
     }
 
     fun onVideosFinished() {
-        Toast.makeText(
-            context,
-            "You've finished ${yoga!!.title} successfully!",
-            Toast.LENGTH_SHORT
-        ).show()
+        context?.let {
+            AlertDialog.Builder(it)
+                .setTitle("GREAT JOB!")
+                .setMessage("You've finished ${yoga!!.title} successfully!").show()
+        }
         activity?.onBackPressed()
     }
 
@@ -117,6 +117,7 @@ class VideoFragment : Fragment() {
 
     fun playPreviousVideo() {
         if (currentVideoIndex - 1 < 0) {
+            activity?.onBackPressed()
             return
         }
         currentVideoIndex--

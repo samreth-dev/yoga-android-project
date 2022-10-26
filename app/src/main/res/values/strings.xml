@@ -4,5 +4,6 @@
     <string name="yogadetails">yogaDetails</string>
     <string name="yogatitle">yogaTitle</string>
     <string name="next">next</string>
+    <string name="textview">TextView</string>
 
 </resources>
