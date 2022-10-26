@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Yoga" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/sample_background</item>
-        <item name="colorPrimaryVariant">@color/sample_background</item>
+        <item name="colorPrimary">@color/app_secondary_color</item>
+        <item name="colorPrimaryVariant">@color/app_secondary_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

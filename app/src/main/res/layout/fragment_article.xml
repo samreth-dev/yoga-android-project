@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        app:cardBackgroundColor="@color/sample_background">
+        app:cardBackgroundColor="@color/app_secondary_color">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="@string/article_fragment_title"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
