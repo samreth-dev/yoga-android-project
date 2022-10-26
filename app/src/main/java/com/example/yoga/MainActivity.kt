@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setTheme(getPreferences(MODE_PRIVATE).getInt("theme", R.style.Theme_Yoga))
 
         var manager = supportFragmentManager
         var transaction = manager.beginTransaction()
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 
 }
