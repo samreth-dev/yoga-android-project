@@ -1,17 +1,12 @@
 package com.example.yoga
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_onboarding.*
-import kotlinx.android.synthetic.main.activity_onboarding.view.*
-import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class OnboardingActivity : AppCompatActivity() {
 

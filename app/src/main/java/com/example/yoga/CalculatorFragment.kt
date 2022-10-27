@@ -1,5 +1,6 @@
 package com.example.yoga
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +20,9 @@ class CalculatorFragment : Fragment() {
     ): View? {
 
         var view = inflater.inflate(R.layout.fragment_calculator, container, false)
-
+        val editS = view.context?.getSharedPreferences("profile", Context.MODE_PRIVATE)
+        val getWeight = editS?.getString("weight", "")
+        view.etWeight.setText(getWeight)
         view.btnCalculate.setOnClickListener {
             var dont = false
             if (etDuration.text.toString().isNullOrEmpty() || etWeight.text.toString().isNullOrEmpty()) {
@@ -27,16 +30,18 @@ class CalculatorFragment : Fragment() {
                 Toast.makeText(context, "Weight or Duration must not be empty!", Toast.LENGTH_SHORT).show()
             }
             if (!dont) {
-                val result = etDuration.text.toString().toDouble() * etWeight.text.toString().toDouble() * 0.0175 * 2.5
-                view.tvCongrat.setText("CONGRATS! YOU HAVE LOST:")
-                view.tvResult.setText(result.roundToInt().toString() + " CALORIES")
-                view.etDuration.clearFocus()
-                view.etWeight.clearFocus()
+                try {
+                    val result = etDuration.text.toString().toDouble() * etWeight.text.toString().toDouble() * 0.0175 * 2.5
+                    view.tvCongrat.setText("CONGRATS! YOU HAVE LOST:")
+                    view.tvResult.setText(result.roundToInt().toString() + " CALORIES")
+                    view.etDuration.clearFocus()
+                    view.etWeight.clearFocus()
+                }
+                catch(e: Exception) {
+                }
             }
         }
-
         return view
-
     }
 
 }

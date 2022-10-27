@@ -2,6 +2,7 @@ package com.example.yoga
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.yoga.R
 import kotlinx.android.synthetic.main.activity_article_detail.*
 
 class ArticleDetail() : AppCompatActivity() {

@@ -2,10 +2,7 @@ package com.example.yoga
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.DialogFragment
-import androidx.navigation.NavController
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {

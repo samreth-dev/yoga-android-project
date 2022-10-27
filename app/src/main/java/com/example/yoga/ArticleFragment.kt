@@ -17,9 +17,8 @@ class ArticleFragment : Fragment() {
 
         var view =  inflater.inflate(R.layout.fragment_article, container, false)
         view.apply {
-            rcvArticle.layoutManager = LinearLayoutManager(context)
-            rcvArticle.adapter = ArticleAdapter(Article.getArticles(context).shuffled())
-
+                rcvArticle.layoutManager = LinearLayoutManager(context)
+                rcvArticle.adapter = ArticleAdapter(Article.getArticles(context).shuffled())
         }
 
         return  view
