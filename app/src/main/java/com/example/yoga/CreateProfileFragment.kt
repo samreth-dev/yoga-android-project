@@ -1,9 +1,6 @@
 package com.example.yoga
 
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,50 +20,27 @@ class CreateProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create_profile, container, false)
-        /*
-        view.btn_confirm.setOnClickListener {
-            var getS = view.context.getSharedPreferences("profile", AppCompatActivity.MODE_PRIVATE)
-            var edit = getS.edit()
-            edit.putString("name", name_edit_text.text.toString())
-            edit.putString("height", height_edit_text.text.toString())
-            edit.putString("weight", weight_edit_text.text.toString())
-            edit.putBoolean("isnew", true)
-            edit.apply()
-        }*/
+
+        view.btnConfirm.setOnClickListener {
+            var dont = false
+            if (etOnName.text.toString().isNullOrEmpty() || etOnWeight.text.toString().isNullOrEmpty()) {
+                dont = true
+                Toast.makeText(context, "Name or Weight must not be empty!", Toast.LENGTH_SHORT).show()
+            }
+            if (!dont) {
+                var getS = view.context.getSharedPreferences("profile", AppCompatActivity.MODE_PRIVATE)
+                var edit = getS.edit()
+                edit.putString("name", etOnName.text.toString())
+                edit.putString("weight", etOnWeight.text.toString())
+                edit.putBoolean("isnew", true)
+                edit.apply()
+                var intent = Intent(context, MainActivity::class.java)
+                context?.startActivity(intent)
+            }
+        }
 
         return view
     }
 
-    private fun createProfile() {
-        saveData()
-        openMain()
-    }
 
-    private fun validateData() {
-        createProfile()
-    }
-
-    private fun saveData() {
-        val spf = context?.getSharedPreferences("miu_yoga", Context.MODE_PRIVATE)
-        val spe = spf?.edit()
-        spe?.apply()
-    }
-
-    private fun openMain() {
-        val intent = Intent(activity, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun showAlert(title: String, message: String) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(title)
-        builder.setMessage(message)
-
-        builder.setNeutralButton("Maybe") { dialog, which ->
-
-        }
-
-        val alertDialog = builder.create()
-        alertDialog.show()
-    }
 }

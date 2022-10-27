@@ -1,6 +1,8 @@
 package com.example.yoga
 
 import android.content.Context.MODE_PRIVATE
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -114,6 +116,11 @@ class PopupSettingsFragment : DialogFragment() {
         }
         if(somethingChanged) {
             recreate(requireActivity())
+            val pm: PackageManager = context?.packageManager!!
+            val intent = pm.getLaunchIntentForPackage(context?.getPackageName()!!)
+            val mainIntent = Intent.makeRestartActivityTask(intent!!.component)
+            context?.startActivity(mainIntent)
+            Runtime.getRuntime().exit(0)
         }
     }
 
