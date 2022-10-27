@@ -1,12 +1,11 @@
 <resources>
 
     <string name="app_name">Yoga</string>
-    <string name="article_fragment_title"> YOGA AND HEALTH</string>
+    <string name="article_fragment_title">YOGA AND HEALTH</string>
+    <string name="profile_fragment_title">PROFILE SETTING</string>
     <string name="article_back_btn">ARTICLES</string>
     <string name="profile_name">Emma Jason</string>
     <string name="profile_name_hint">Name</string>
-    <string name="profile_age">18 Y.os</string>
-    <string name="profile_age_hint">Age</string>
     <string name="profile_height">160 Cm</string>
     <string name="profile_height_hint">Height</string>
     <string name="profile_weight">45 Kg</string>
@@ -25,4 +24,6 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
     <string name="save">Save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

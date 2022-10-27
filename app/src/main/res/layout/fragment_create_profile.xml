@@ -155,10 +155,10 @@
                     android:layout_height="72dp" />
 
                 <Button
-                    android:id="@+id/bnt_create"
+                    android:id="@+id/btn_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:text="confirm" />
 
             </LinearLayout>
         </ScrollView>

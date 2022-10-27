@@ -56,22 +56,22 @@ class ProfileFragment : Fragment() {
             viewF.apply {
                 var getS = viewF.context.getSharedPreferences("profile", MODE_PRIVATE)
                 etProfileName.setText(getS?.getString("name", ""))
-                etProfileAge.setText(getS?.getString("age", ""))
-                etProfileHeight.setText(getS?.getString("height", ""))
                 etProfileWeight.setText(getS?.getString("weight", ""))
                 encodedImg = getS?.getString("img", "").toString()
                 val decodedString: ByteArray = Base64.decode(encodedImg, Base64.DEFAULT)
                 val bitmapImg =
                     BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
                 imgProfile.setImageBitmap(bitmapImg)
+                if (decodedString.isEmpty()) {
+                    imgProfile.setImageResource(R.drawable.img_temp)
+                }
             }
         }
         catch (e: java.lang.Exception) {
             viewF.apply {
                 etProfileName.setText("Name")
-                etProfileAge.setText("")
-                etProfileHeight.setText("")
                 etProfileWeight.setText("")
+                imgProfile.setImageResource(R.drawable.img_temp)
             }
         }
     }
@@ -93,24 +93,30 @@ class ProfileFragment : Fragment() {
 
     private fun setImageButtonListener() {
         viewF.apply {
-            startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                if(it!=null) {
-                    val img = it.data?.data
-                    val bitmapImg =
-                        MediaStore.Images.Media.getBitmap(context?.getContentResolver(), img)
-                    imgProfile.setImageBitmap(bitmapImg)
-                    val baos = ByteArrayOutputStream()
-                    bitmapImg.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-                    val b = baos.toByteArray()
-                    encodedImg = android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
+            try {
+                startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                    if(it!=null) {
+                        val img = it.data?.data
+                        val bitmapImg =
+                            MediaStore.Images.Media.getBitmap(context?.getContentResolver(), img)
+                        imgProfile.setImageBitmap(bitmapImg)
+                        val baos = ByteArrayOutputStream()
+                        bitmapImg.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                        val b = baos.toByteArray()
+                        encodedImg = android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
+                    }
+                }
+                imgProfile.setOnClickListener {
+                    val i = Intent()
+                    i.action = Intent.ACTION_PICK
+                    i.type = "image/*"
+                    startforResultGalley.launch(i)
                 }
             }
-            imgProfile.setOnClickListener {
-                val i = Intent()
-                i.action = Intent.ACTION_PICK
-                i.type = "image/*"
-                startforResultGalley.launch(i)
+            catch (e: Exception) {
+
             }
+
         }
     }
 
@@ -118,19 +124,13 @@ class ProfileFragment : Fragment() {
         viewF.apply {
             fabProfileEdit.setImageResource(R.drawable.ic_save_edit)
             etProfileName.isEnabled = true
-            etProfileHeight.isEnabled = true
             etProfileWeight.isEnabled = true
-            etProfileAge.isEnabled = true
             try {
-                tempAge = etProfileAge.text.toString().removeSuffix(" Y.os").toInt()
                 tempWeight = etProfileWeight.text.toString().removeSuffix(" Kg").toInt()
-                tempHeight = etProfileHeight.text.toString().removeSuffix(" Cm").toInt()
             }
             catch (e: Exception) {
             }
-            etProfileAge.setText(tempAge.toString())
             etProfileWeight.setText(tempWeight.toString())
-            etProfileHeight.setText(tempHeight.toString())
             fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(255,90, 90))
             Toast.makeText(context, "Edit mode!", Toast.LENGTH_SHORT).show()
         }
@@ -141,18 +141,13 @@ class ProfileFragment : Fragment() {
             val editS = viewF.context?.getSharedPreferences("profile", MODE_PRIVATE)?.edit()
             fabProfileEdit.setImageResource(R.drawable.ic_edit)
             etProfileName.isEnabled = false
-            etProfileHeight.isEnabled = false
             etProfileWeight.isEnabled = false
-            etProfileAge.isEnabled = false
-            etProfileHeight.setText(etProfileHeight.text.toString() + " Cm")
-            etProfileAge.setText(etProfileAge.text.toString() + " Y.os")
             etProfileWeight.setText(etProfileWeight.text.toString() + " Kg")
             try {
                 editS?.putString("name", etProfileName.text.toString())
-                editS?.putString("age", etProfileAge.text.toString())
-                editS?.putString("height", etProfileHeight.text.toString())
                 editS?.putString("weight", etProfileWeight.text.toString())
                 editS?.putString("img", encodedImg)
+                editS?.putBoolean("isnew", false)
                 editS?.commit()
             }
             catch (e: Exception) {

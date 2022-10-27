@@ -18,12 +18,12 @@
     <style name="Theme.Yoga.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="themeTag">YogaDark</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/app_secondary_color</item>
+        <item name="colorPrimaryVariant">@color/app_secondary_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/purple_700</item>
-        <item name="colorSecondaryVariant">@color/purple_700</item>
+        <item name="colorSecondary">@color/app_secondary_color</item>
+        <item name="colorSecondaryVariant">@color/app_secondary_color</item>
         <item name="colorOnSecondary">@color/black</item>
 
         <!-- Status bar color. -->

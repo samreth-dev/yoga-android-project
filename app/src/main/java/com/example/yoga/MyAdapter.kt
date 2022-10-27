@@ -26,12 +26,12 @@ class MyAdapter(var ylist: ArrayList<Yoga>) : RecyclerView.Adapter<MyAdapter.MyV
             holder.itemView.yogaTypeList.setBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
-                 R.color.yoga_green
+                 R.color.app_primary_color
                 )
             )
         } else {
             holder.itemView.yogaTypeList.setBackgroundColor(
-                ContextCompat.getColor(holder.itemView.context, R.color.yoga_light_beige)
+                ContextCompat.getColor(holder.itemView.context, R.color.white)
             )
         }
     }
