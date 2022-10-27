@@ -32,8 +32,8 @@ class PopupSettingsFragment : DialogFragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_popup_settings, container, false)
 
-        languageStrings = listOf(resources.getString(R.string.english), resources.getString(R.string.turkish))
-        locales = listOf("en", "tr")
+        languageStrings = listOf(resources.getString(R.string.english), resources.getString(R.string.turkish), resources.getString(R.string.arabic))
+        locales = listOf("en", "tr", "ar")
 
         themeStrings = listOf(resources.getString(R.string.light_theme), resources.getString(R.string.dark_theme))
         themeTags = listOf("Yoga", "YogaDark")
@@ -51,6 +51,11 @@ class PopupSettingsFragment : DialogFragment() {
         }
 
         view.popupSettingsSaveButton.setOnClickListener {
+            dismiss()
+        }
+
+        view.profileSettingsButtonPopup.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fcvMain, ProfileFragment()).commit()
             dismiss()
         }
 
