@@ -34,7 +34,7 @@
                     android:layout_height="150dp"
                     android:layout_marginBottom="40dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/create_profile_image" />
+                    android:src="@drawable/create_profile_logo" />
 
                 <TextView
                     android:id="@+id/textView8"

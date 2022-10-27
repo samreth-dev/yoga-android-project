@@ -1,12 +1,11 @@
 <resources>
 
     <string name="app_name">Yoga</string>
-    <string name="article_fragment_title"> YOGA AND HEALTH</string>
+    <string name="article_fragment_title">YOGA AND HEALTH</string>
+    <string name="profile_fragment_title">PROFILE SETTING</string>
     <string name="article_back_btn">ARTICLES</string>
     <string name="profile_name">Emma Jason</string>
     <string name="profile_name_hint">Name</string>
-    <string name="profile_age">18 Y.os</string>
-    <string name="profile_age_hint">Age</string>
     <string name="profile_height">160 Cm</string>
     <string name="profile_height_hint">Height</string>
     <string name="profile_weight">45 Kg</string>
@@ -25,4 +24,32 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
     <string name="save">Save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="artTitle1">Yoga benefits</string>
+    <string name="artTitle2">Why Yoga Is Good for Your Body and Brain</string>
+    <string name="artTitle3">Yoga for everyone</string>
+    <string name="artTitle4">16 Benefits of Yoga That Are Supported by Science</string>
+    <string name="artTitle5">A 6-Pose Practice for Challenging Times</string>
+    <string name="artTitle6">Relieve Neck Tension With This Short Therapeutic Practice</string>
+    <string name="artTitle7">Sweet Coconut and Turmeric Milk</string>
+    <string name="artTitle8">How Well Do You Know Yoga Anatomy</string>
+    <string name="artTitle9">5 Ways to Use Food to Improve Digestion</string>
+    <string name="artTitle10">Does Yoga Count as Exercise</string>
+    <string name="artTitle11">5-Minute Back-to-Basics Yoga</string>
+    <string name="artTitle12">Can Yoga Lower Your Risk of Getting Sick?</string>
+    <string name="artTitle13">Is Meditation Reducing Violence at This Chicago School?</string>
+    <string name="artTitle14">Transcendental Meditation Ideal for Millennials, Says Inverse.com</string>
+    <string name="artTitle15">MIU Alum Brings Yoga to Inner-City Wilmington</string>
+    <string name="artTitle16">Physiological Patterns of Transcendental Consciousness</string>
+    <string name="artTitle17">Maharishi Effect</string>
+    <string name="artTitle18">Peaceful Body, Peaceful Mind, Peaceful World</string>
+    <string name="artTitle19">Transcendental Meditation in the New Millennium (Part One)</string>
+    <string name="artTitle20">Transcendental Meditation in the New Millennium (Part two)</string>
+    <string name="artTitle21">Maharishi’s Yoga: The foundations of true practice</string>
+    <string name="artTitle22">Five benefits of practicing Maharishi Yoga Asanas</string>
+    <string name="artTitle23">Healthy Eating</string>
+    <string name="artTitle24">Healthy Eating Plate</string>
+    <string name="artTitle25">Food for your mood</string>
+    <string name="artTitle26">Top 10 foods for health</string>
 </resources>

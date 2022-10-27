@@ -2,6 +2,7 @@ package com.example.yoga
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
                     R.id.navBtnCalculator -> {
                         transaction = manager.beginTransaction()
-                        transaction.replace(R.id.fcvMain, CalorieLostFragment())
+                        transaction.replace(R.id.fcvMain, CalculatorFragment())
                         transaction.commit()
                     }
                     R.id.navBtnYoga -> {
@@ -55,6 +56,13 @@ class MainActivity : AppCompatActivity() {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, StatisticsFragment())
                         transaction.commit()
+
+//                        val fragment = StatisticsFragment()
+//                        val transaction = supportFragmentManager.beginTransaction()
+//                        transaction.add(R.id.fcvMain, fragment)
+//                        transaction.commit()
+
+                        // PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
                     }
                 }
             }
@@ -62,6 +70,8 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
 
     }
 

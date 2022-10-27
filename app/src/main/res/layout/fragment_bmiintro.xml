@@ -79,40 +79,48 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Heart Diseases"
-                            android:textColor="@color/white" />
+                            android:text="‣ Heart Diseases"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/textView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Dyspenea"
-                            android:textColor="@color/white" />
+                            android:text="‣ Dyspenea"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/textView3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Diabetes"
-                            android:textColor="@color/white" />
+                            android:text="‣ Diabetes"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Depression"
-                            android:textColor="@color/white" />
+                            android:text="‣ Depression"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -150,10 +158,34 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Beauty"
-                            android:textColor="@color/white" />
+                            android:text="‣ Beauty"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center|left"
+                            android:minHeight="40dp"
+                            android:text="‣ Health"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.25"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center|left"
+                            android:minHeight="40dp"
+                            android:text="‣ Happiness"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -161,26 +193,10 @@
                             android:layout_weight="0.25"
                             android:gravity="center|left"
                             android:minHeight="40dp"
-                            android:text="Health"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.25"
-                            android:gravity="center|left"
-                            android:minHeight="40dp"
-                            android:text="Happiness"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.25"
-                            android:gravity="center|left"
-                            android:minHeight="40dp"
-                            android:text="Success"
-                            android:textColor="@color/white" />
+                            android:text="‣ Success"
+                            android:textColor="@color/white"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
