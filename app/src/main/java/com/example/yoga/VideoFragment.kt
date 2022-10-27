@@ -1,9 +1,7 @@
 package com.example.yoga
 
-import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,22 +9,24 @@ import android.widget.MediaController
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_video.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import kotlin.math.floor
 import kotlin.system.measureTimeMillis
 
 
 private const val ARG_PARAM1 = "yoga"
-private const val VIDEO_HOST = "http://silvanaishak.github.io/mdpVideos/"
+private const val VIDEO_HOST = "https://silvanaishak.github.io/mdpVideos/"
 private const val VIDEO_EXTENSION = ".mp4"
 
-class VideoFragment : Fragment() {
+class VideoFragment : BaseCoroutineFragment() {
     private var yoga: Yoga? = null
     private var currentVideoIndex: Int = -1
+    private var watchedTime: Long = 0
 
     private lateinit var mediaController: MediaController
     private lateinit var videoView: VideoView
@@ -44,6 +44,16 @@ class VideoFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_video, container, false)
 
+        savedInstanceState?.getInt("currentVideoIndex")?.let {
+            currentVideoIndex = (it - 1).coerceAtLeast(0)
+        }
+        savedInstanceState?.getSerializable("yoga")?.let {
+            yoga = it as Yoga
+        }
+        savedInstanceState?.getLong("watchedTime")?.let {
+            watchedTime = it
+        }
+
         mediaController = MediaController(context)
         videoView = view.videoView
         mediaController.setAnchorView(videoView)
@@ -59,6 +69,7 @@ class VideoFragment : Fragment() {
                  * and set its position on screen
                  */
                 mediaController.setAnchorView(videoView)
+                view.txtvideoname.text = yoga?.video?.get(currentVideoIndex)?.name ?: ""
             }
 
         }
@@ -88,10 +99,11 @@ class VideoFragment : Fragment() {
 
     private suspend fun updateDuration(view: View){
         while (true) {
+            delay(100)
             if(videoView.isPlaying) {
-                view.timerText.text = ((videoView.currentPosition) / 1000).toString()
+                watchedTime += 100
+                view.timerText.text = floor(watchedTime.toDouble()/1000).toInt().toString()
             }
-            delay(500)
         }
     }
 
@@ -126,6 +138,27 @@ class VideoFragment : Fragment() {
         videoView.start()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("currentVideoIndex", currentVideoIndex)
+        outState.putSerializable("yoga", yoga)
+        outState.putLong("watchedTime", watchedTime)
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        launch {
+            val totalTimeElapsed = ((watchedTime.toDouble() / 1000)/60).toInt()
+            val yogaSession = YogaSession(burnedCalories = (totalTimeElapsed*3), duration = totalTimeElapsed, yogaCompletionDateTime = LocalDateTime.now())
+            context?.let {
+                YogaDatabase(it).getYogaSessionDao().addYogaSession(yogaSession)
+            }
+        }
+    }
 
     companion object {
         @JvmStatic

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="50dp"
+                android:paddingTop="20dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="50dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/create_profile_logo"
+                    app:tint="#6BA85E"
+                    android:tintMode="multiply"
+                    app:srcCompat="@drawable/create_profile_logo"
+                    tools:srcCompat="@drawable/create_profile_logo" />
+
+                <TextView
+                    android:id="@+id/name_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Enter your name"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="45dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/weight_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Enter your weight"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:id="@+id/weight_edit_text"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

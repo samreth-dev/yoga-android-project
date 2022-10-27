@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -18,13 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/person/baseline_person_24.xml" />
-
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/chevron_right/baseline_chevron_right_24.xml" />
-
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/save_as/baseline_save_as_24.xml" />
-
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/calculate/baseline_calculate_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -34,14 +33,7 @@
                         </option>
                         <option name="values">
                           <map>
-
-                            <entry key="outputName" value="ic_profile" />
-
-                            <entry key="outputName" value="ic_baseline_chevron_right_24" />
-                            <entry key="sourceFile" value="C:\Users\silva\Downloads\meditation_logo.svg" />
-
-                            <entry key="outputName" value="ic_baseline_save_as_24" />
-
+                            <entry key="outputName" value="ic_calculator" />
                           </map>
                         </option>
                       </PersistentState>

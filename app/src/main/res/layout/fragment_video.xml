@@ -8,45 +8,67 @@
     android:orientation="vertical"
     tools:context=".VideoFragment">
 
+    <TextView
+        android:id="@+id/txtvideoname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="32dp"
+        android:text="Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.yoga.PlayStateBroadcastingVideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="300dp" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+        app:layout_constraintEnd_toStartOf="@+id/btnNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPrevious"
+        app:layout_constraintTop_toTopOf="@+id/btnPrevious"
+        app:layout_constraintVertical_bias="0.589" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="32dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_chevron_right_24"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPrevious"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoView"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="90dp"
         android:clickable="true"
         android:src="@drawable/ic_baseline_chevron_left_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <com.example.yoga.PlayStateBroadcastingVideoView
-        android:id="@+id/videoView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_height="200dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_chevron_right_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnPrevious"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textview"
-        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
-        app:layout_constraintEnd_toStartOf="@+id/btnNext"
-        app:layout_constraintStart_toEndOf="@+id/btnPrevious"
-        app:layout_constraintTop_toTopOf="@+id/btnNext" />
 </androidx.constraintlayout.widget.ConstraintLayout>

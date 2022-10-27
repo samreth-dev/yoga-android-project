@@ -1,66 +1,68 @@
 package com.example.yoga
 
-
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-
-import android.annotation.SuppressLint
-import android.app.Application
-import android.content.res.ColorStateList
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private var isEdited = false
     lateinit var mnavController: NavController
+    private var articleFragment = ArticleFragment()
+    private var calorieLostFragment = CalorieLostFragment()
+    private var yogaIntroFragment = YogaIntroFragment()
+    private var profileFragment = ProfileFragment()
+    private var articleDetailFragment = ArticleDetailFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navBtnYoga()
-    }
+        setTheme(getPreferences(MODE_PRIVATE).getInt("theme", R.style.Theme_Yoga))
 
-    fun navBtnYoga() {
-        // set yoga fragment to frame view
-        val fragment = YogaFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
-    }
-
-
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fcvMain) as NavHostFragment
-        mnavController = navHostFragment.navController
-
+        var manager = supportFragmentManager
+        var transaction = manager.beginTransaction()
+        transaction.add(R.id.fcvMain, ArticleFragment())
+        transaction.commit()
         bnvMain.setOnItemSelectedListener {
             try {
                 when (it.itemId) {
                     R.id.navBtnSetting -> {
-                        val current = mnavController.currentDestination?.id
-                        if (current == R.id.articleFragment) {
-                            mnavController.navigate(R.id.action_articleFragment_to_profileFragment)
-                        }
-                        else if (current == R.id.articleDetailFragment){
-                            mnavController.navigate(R.id.action_articleDetailFragment_to_profileFragment)
-                        }
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, ProfileFragment())
+                        transaction.commit()
                     }
                     R.id.navBtnArticle -> {
-                        mnavController.navigate(R.id.action_profileFragment_to_articleFragment)
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, ArticleFragment())
+                        transaction.commit()
+                    }
+
+                    R.id.navBtnCalculator -> {
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, CalculatorFragment())
+                        transaction.commit()
+                    }
+                    R.id.navBtnYoga -> {
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, YogaFragment())
+                        transaction.commit()
+                    }
+
+                    R.id.navBtnStatistic -> {
+                        transaction = manager.beginTransaction()
+                        transaction.replace(R.id.fcvMain, StatisticsFragment())
+                        transaction.commit()
+
+//                        val fragment = StatisticsFragment()
+//                        val transaction = supportFragmentManager.beginTransaction()
+//                        transaction.add(R.id.fcvMain, fragment)
+//                        transaction.commit()
+
+                        // PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
                     }
                 }
             }
@@ -69,7 +71,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-    }
+        PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
 
+    }
 
 }

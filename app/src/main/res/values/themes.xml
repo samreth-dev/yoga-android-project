@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Yoga" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="themeTag">Yoga</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/sample_background</item>
-        <item name="colorPrimaryVariant">@color/sample_background</item>
+        <item name="colorPrimary">@color/app_secondary_color</item>
+        <item name="colorPrimaryVariant">@color/app_secondary_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +13,26 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Yoga.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="themeTag">YogaDark</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_secondary_color</item>
+        <item name="colorPrimaryVariant">@color/app_secondary_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/app_secondary_color</item>
+        <item name="colorSecondaryVariant">@color/app_secondary_color</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
     </style>
 </resources>

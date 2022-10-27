@@ -22,6 +22,21 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Setting"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgProfile"
             android:layout_width="150dp"
@@ -36,133 +51,70 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="30dp" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
-            app:cardCornerRadius="10dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etProfileNameLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            android:hint="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etProfileName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@null"
-                android:editable="true"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="@string/profile_name_hint"
-                android:inputType="textPersonName"
-                android:text="@string/profile_name"
-                android:textColor="@color/et_enable_selector"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:inputType="number" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
-            app:cardCornerRadius="10dp">
-
-            <EditText
-                android:id="@+id/etProfileAge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@null"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="@string/profile_age_hint"
-                android:inputType="number"
-                android:text="@string/profile_age"
-                android:textColor="@color/et_enable_selector"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
-            app:cardCornerRadius="10dp">
-
-            <EditText
-                android:id="@+id/etProfileHeight"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@null"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="@string/profile_height_hint"
-                android:inputType="number|textPersonName"
-                android:text="@string/profile_height"
-                android:textColor="@color/et_enable_selector"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
-
-        <Space
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etProfileWeightLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            android:hint="Weight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:elevation="20dp"
-            app:cardBackgroundColor="@color/sec_sample_background"
-            app:cardCornerRadius="10dp">
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etProfileWeight"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@null"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="@string/profile_weight_hint"
-                android:inputType="numberSigned|number"
-                android:text="@string/profile_weight"
-                android:textColor="@color/et_enable_selector"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:tint="@color/white"
             android:id="@+id/fabProfileEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:src="@drawable/ic_edit"
-            app:backgroundTint="@color/sample_background" />
+            android:tint="#FFFFFF"
+            app:backgroundTint="@color/app_action_color" />
 
         <Space
             android:layout_width="match_parent"

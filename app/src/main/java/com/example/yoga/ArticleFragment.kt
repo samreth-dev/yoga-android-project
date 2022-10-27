@@ -24,15 +24,24 @@ class ArticleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentArticleBinding.inflate(inflater, container, false)
-        binding.apply {
+
+        var view =  inflater.inflate(R.layout.fragment_article, container, false)
+        view.apply {
             rcvArticle.layoutManager = LinearLayoutManager(context)
-            rcvArticle.adapter = ArticleAdapter(Article.articles.shuffled(), findNavController())
+            rcvArticle.adapter = ArticleAdapter(Article.articles.shuffled())
+
         }
 
-        return binding.root
+        return  view
+//, findNavController()
+//        binding = FragmentArticleBinding.inflate(inflater, container, false)
+//        binding.apply {
+//            rcvArticle.layoutManager = LinearLayoutManager(context)
+//            rcvArticle.adapter = ArticleAdapter(Article.articles.shuffled(), findNavController())
+//        }
+//
+//        return binding.root
 
     }
-
 }
 

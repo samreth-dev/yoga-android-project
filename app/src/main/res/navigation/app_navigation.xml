@@ -12,9 +12,6 @@
         <action
             android:id="@+id/action_articleFragment_to_articleDetailFragment"
             app:destination="@id/articleDetailFragment" />
-        <action
-            android:id="@+id/action_articleFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleDetailFragment"
@@ -22,16 +19,17 @@
         android:label="fragment_article_detail"
         tools:layout="@layout/fragment_article_detail" >
         <action
-            android:id="@+id/action_articleDetailFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_articleDetailFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.yoga.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/calorieLostFragment"
+        android:name="com.example.yoga.CalorieLostFragment"
+        android:label="fragment_calorie_lost"
+        tools:layout="@layout/fragment_calorie_lost" />
 </navigation>

@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+
 import com.google.gson.stream.JsonReader
+
 import kotlinx.android.synthetic.main.fragment_yoga.view.*
 import kotlinx.android.synthetic.main.yoga_type_list.*
 import java.io.StringReader
@@ -24,12 +26,12 @@ class YogaFragment : Fragment() {
 
         val yogas = ArrayList<Yoga>()
 
-        val yogaJson = gson.fromJson<YogaJSON>(activity?.assets?.open("yogas.json")?.bufferedReader(),
-            YogaJSON::class.java)
+        val yogaJson = gson.fromJson<YogaJSON>(activity?.assets?.open("yogas.json")?.bufferedReader(), YogaJSON::class.java)
 
         yogaJson.yogas.forEach {
             yogas.add(it)
         }
+
 
         view.recyclerView1.layoutManager = LinearLayoutManager(context)
         val adapter = MyAdapter(yogas)
@@ -39,7 +41,7 @@ class YogaFragment : Fragment() {
         adapter.onItemClick = { yoga ->
             val fragment = VideoFragment.newInstance(yoga)
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.replace(R.id.fcvMain, fragment)
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
