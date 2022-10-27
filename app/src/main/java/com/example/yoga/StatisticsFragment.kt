@@ -3,15 +3,17 @@ package com.example.yoga
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.math.MathUtils.clamp
 import com.google.android.material.math.MathUtils
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
+import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.util.*
 
-class StatisticsFragment : Fragment() {
+class StatisticsFragment : BaseCoroutineFragment() {
 
     var caloriesBurned = 0
     var timeElapsed = 0
@@ -27,8 +29,22 @@ class StatisticsFragment : Fragment() {
 
         fetchTargets()
 
-        caloriesBurned = 150
-        timeElapsed = 15
+        caloriesBurned = 0
+        timeElapsed = 0
+
+        launch{
+            context?.let {
+                YogaDatabase(it).getYogaSessionDao().getTotalBurnedCalories(LocalDateTime.now().minusDays(1), LocalDateTime.now()).let {
+                    caloriesBurned = it
+                }
+                YogaDatabase(it).getYogaSessionDao().getTotalYogaDuration(LocalDateTime.now().minusDays(1), LocalDateTime.now()).let {
+                    timeElapsed = it
+                }
+                activity?.runOnUiThread{
+                    updateProgressBars(view)
+                }
+            }
+        }
 
         updateProgressBars(view)
 

@@ -27,7 +27,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/caloriesBurnedCardView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
@@ -88,7 +88,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/timeElapsedDailyCardView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
