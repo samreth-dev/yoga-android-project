@@ -63,6 +63,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
+
     }
 
 }

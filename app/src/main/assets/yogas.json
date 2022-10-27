@@ -5,23 +5,23 @@
       "title": "Beginner",
       "video": [
         {
-          "name": "v1",
+          "name": "Warrior 1",
           "videoFileName": "video1"
         },
         {
-          "name": "v2",
+          "name": "Warrior 2",
           "videoFileName": "video2"
         },
         {
-          "name": "v3",
+          "name": "Warrior 3",
           "videoFileName": "video3"
         },
         {
-          "name": "v4",
+          "name": "Triangle",
           "videoFileName": "video4"
         },
         {
-          "name": "v5",
+          "name": "Upward Plank",
           "videoFileName": "video5"
         }
 
@@ -32,15 +32,15 @@
       "title": "Intermediate",
       "video": [
         {
-          "name": "v6",
+          "name": "Tree",
           "videoFileName": "video6"
         },
         {
-          "name": "v7",
+          "name": "Thunderbolt",
           "videoFileName": "video7"
         },
         {
-          "name": "v8",
+          "name": "Sun Salutation",
           "videoFileName": "video8"
         }
       ]
@@ -50,8 +50,22 @@
       "title": "Advanced",
       "video": [
         {
-          "name": "v10",
+          "name": "Side Plank",
           "videoFileName": "video10"
+        }
+      ]
+    },
+    {
+      "details": "Check more about ASANAS",
+      "title": "Why ASANAS are Important?",
+      "video": [
+        {
+          "name": "Why ASANAS?",
+          "videoFileName": "Asana"
+        },
+        {
+          "name": "MAHARISHI YOGA?",
+          "videoFileName": "MaharishiYoga"
         }
       ]
     }
