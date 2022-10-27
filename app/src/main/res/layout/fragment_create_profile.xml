@@ -8,8 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/intro_gradient_background">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -34,21 +33,25 @@
                     android:layout_height="150dp"
                     android:layout_marginBottom="40dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/create_profile_image" />
+                    android:src="@drawable/create_profile_logo"
+                    app:tint="#6BA85E"
+                    android:tintMode="multiply"
+                    app:srcCompat="@drawable/create_profile_logo"
+                    tools:srcCompat="@drawable/create_profile_logo" />
 
                 <TextView
                     android:id="@+id/name_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Enter your name"
-                    android:textColor="#FFFFFF" />
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/name_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/white"
                     android:ems="10"
                     android:inputType="textEmailAddress"
                     android:minHeight="45dp"
@@ -61,8 +64,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Enter your weight"
-                    android:textColor="#FFFFFF" />
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,90 +79,17 @@
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="10dp"
-                        android:layout_weight="0.6"
-                        android:backgroundTint="@color/white"
+                        android:layout_weight="1"
                         android:ems="10"
                         android:inputType="text"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColor="@color/white" />
+                        android:paddingRight="10dp" />
 
-                    <Spinner
-                        android:id="@+id/weight_metric_spinner"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:backgroundTint="@color/white" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/height_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Enter your height"
-                    android:textColor="#FFFFFF" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <EditText
-                        android:id="@+id/height_edit_text"
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="0.25"
-                        android:backgroundTint="@color/white"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/height_label3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="0.1"
-                        android:text="ft"
-                        android:textColor="#FFFFFF" />
-
-                    <EditText
-                        android:id="@+id/height_edit_text2"
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="0.25"
-                        android:backgroundTint="@color/white"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColor="@color/white" />
-
-                    <Spinner
-                        android:id="@+id/height_metric_spinner"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:backgroundTint="@color/white" />
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="72dp" />
-
-                <Button
-                    android:id="@+id/btn_confirm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="confirm" />
 
             </LinearLayout>
         </ScrollView>

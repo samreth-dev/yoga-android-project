@@ -5,7 +5,7 @@
             android:innerRadius="3dp"
             android:thickness="2dp"
             android:useLevel="false">
-            <solid android:color="@color/gradient_start_color" />
+            <solid android:color="@color/app_secondary_color" />
         </shape>
     </item>
 </layer-list>
