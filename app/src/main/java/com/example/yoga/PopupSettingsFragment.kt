@@ -86,7 +86,7 @@ class PopupSettingsFragment : DialogFragment() {
     }
 
     fun getCurrentLocaleCode(): String {
-        return resources.configuration.locale.toLanguageTag().substring(0, 2)
+        return requireActivity().getPreferences(MODE_PRIVATE).getString("locale", resources.configuration.locale.toLanguageTag().substring(0, 2)) ?: "en"
     }
 
     fun getSelectedLanguageToLocaleCode(): String {
@@ -103,6 +103,7 @@ class PopupSettingsFragment : DialogFragment() {
             config.locale = locale
             // Update new locale settings
             resources.updateConfiguration(config, resources.displayMetrics)
+            requireActivity().getPreferences(MODE_PRIVATE).edit().putString("locale", localeCode).apply()
             somethingChanged = true
         }
         val theme = styles[themeStrings.indexOf(view?.settingsThemePick?.editText?.text.toString())]
