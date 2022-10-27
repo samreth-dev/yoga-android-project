@@ -16,8 +16,8 @@ interface YogaSessionDao {
     fun getAllYogaSessions(): List<YogaSession>
 
     @Query("SELECT SUM(burnedCalories) FROM YOGASESSION WHERE yogaCompletionDateTime BETWEEN :date AND :dateEnd")
-    fun getTotalBurnedCalories(date: LocalDateTime, dateEnd: LocalDateTime): Int
+    fun getTotalBurnedCalories(date: LocalDateTime, dateEnd: LocalDateTime): Double
 
     @Query("SELECT SUM(duration) FROM YOGASESSION WHERE yogaCompletionDateTime BETWEEN :date AND :dateEnd")
-    fun getTotalYogaDuration(date: LocalDateTime, dateEnd: LocalDateTime): Int
+    fun getTotalYogaDuration(date: LocalDateTime, dateEnd: LocalDateTime): Double
 }

@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, ProfileFragment())
                         transaction.commit()
+                        //PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
                     }
                     R.id.navBtnArticle -> {
                         transaction = manager.beginTransaction()

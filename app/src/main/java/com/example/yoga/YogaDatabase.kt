@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [YogaSession::class], version = 1)
+@Database(entities = [YogaSession::class], version = 2)
 @TypeConverters(DateConverter::class)
 abstract class YogaDatabase() : RoomDatabase() { // Must Inherit from RoomDatabase
     abstract fun getYogaSessionDao(): YogaSessionDao

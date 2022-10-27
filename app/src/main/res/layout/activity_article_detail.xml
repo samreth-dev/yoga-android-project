@@ -21,7 +21,7 @@
 
             <Button
                 android:id="@+id/btnArticle"
-                android:layout_width="140dp"
+                android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:backgroundTint="@color/white"

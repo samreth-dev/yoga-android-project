@@ -7,8 +7,8 @@ import java.util.*
 
 @Entity
 data class YogaSession(
-    var burnedCalories: Int,
-    var duration: Int,
+    var burnedCalories: Double,
+    var duration: Double,
     var yogaCompletionDateTime: LocalDateTime?
 ){
     @PrimaryKey(autoGenerate = true) var id: Int = 0

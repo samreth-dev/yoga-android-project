@@ -6,17 +6,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.math.MathUtils.clamp
 import com.google.android.material.math.MathUtils
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.util.*
+import kotlin.math.roundToInt
 
 class StatisticsFragment : BaseCoroutineFragment() {
 
-    var caloriesBurned = 0
-    var timeElapsed = 0
+    var caloriesBurned = 0.0
+    var timeElapsed = 0.0
 
     var caloriesBurnedTarget = 0
     var timeElapsedTarget = 0
@@ -29,8 +31,8 @@ class StatisticsFragment : BaseCoroutineFragment() {
 
         fetchTargets()
 
-        caloriesBurned = 0
-        timeElapsed = 0
+        caloriesBurned = 0.0
+        timeElapsed = 0.0
 
         launch{
             context?.let {
@@ -63,11 +65,11 @@ class StatisticsFragment : BaseCoroutineFragment() {
 
         view.caloriesBurnedProgressBar?.startAngle = ACTIVE_ANGLE
         view.caloriesBurnedProgressBar?.setProgressWithAnimation(MathUtils.lerp(0f, MAX_PROGRESS_PERCENTAGE, caloriesProgress), 1000)
-        view.caloriesBurnedAmount?.text = "$caloriesBurned / $caloriesBurnedTarget"
+        view.caloriesBurnedAmount?.text = "${(caloriesBurned * 100.0).roundToInt() / 100.0} / $caloriesBurnedTarget"
 
         view.timeElapsedDailyProgressBar?.startAngle = ACTIVE_ANGLE
         view.timeElapsedDailyProgressBar?.setProgressWithAnimation(MathUtils.lerp(0f, MAX_PROGRESS_PERCENTAGE, timeElapsedProgress), 1000)
-        view.timeElapsedAmount?.text = "$timeElapsed / $timeElapsedTarget"
+        view.timeElapsedAmount?.text = "${(timeElapsed * 100.0).roundToInt() / 100.0} / $timeElapsedTarget"
     }
 
     fun fetchTargets(){
@@ -82,6 +84,7 @@ class StatisticsFragment : BaseCoroutineFragment() {
         editor.putInt("caloriesBurned", caloriesBurnedTarget)
         editor.putInt("timeElapsed", timeElapsedTarget)
         editor.apply()
+        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
     }
 
     fun onSaveStatisticsButtonClicked(){

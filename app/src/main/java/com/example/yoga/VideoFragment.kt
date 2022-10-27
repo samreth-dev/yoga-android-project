@@ -152,7 +152,7 @@ class VideoFragment : BaseCoroutineFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         launch {
-            val totalTimeElapsed = ((watchedTime.toDouble() / 1000)/60).toInt()
+            val totalTimeElapsed = ((watchedTime.toDouble() / 1000)/60)
             val yogaSession = YogaSession(burnedCalories = (totalTimeElapsed*3), duration = totalTimeElapsed, yogaCompletionDateTime = LocalDateTime.now())
             context?.let {
                 YogaDatabase(it).getYogaSessionDao().addYogaSession(yogaSession)
