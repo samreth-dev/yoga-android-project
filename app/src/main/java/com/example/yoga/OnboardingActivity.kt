@@ -26,9 +26,10 @@ class OnboardingActivity : AppCompatActivity() {
         viewPager.adapter = OnboardingPagerAdapter(supportFragmentManager, lifecycle)
 
         val tabLayout = findViewById<TabLayout>(R.id.tab_indicator)
-        TabLayoutMediator(tabLayout, viewPager) { _, _ -> }.attach()
+        TabLayoutMediator(tabLayout, viewPager) { _, _ ->
 
-        val nextBnt = findViewById<Button>(R.id.btn_next)
+        }.attach()
+
         btn_next.setOnClickListener {
             tabLayout.getTabAt(++tabIndex)?.select()
         }
