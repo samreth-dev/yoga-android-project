@@ -21,7 +21,6 @@ import java.io.ByteArrayOutputStream
 
 class ProfileFragment : Fragment() {
 
-    //private lateinit var binding: FragmentProfileBinding
     private lateinit var startforResultGalley : ActivityResultLauncher<Intent>
     private var encodedImg = ""
     private var isEdited = false
@@ -39,13 +38,7 @@ class ProfileFragment : Fragment() {
         setEditButtonListener()
 
         return viewF
-//        binding = FragmentProfileBinding.inflate(inflater, container, false)
-//
-//        initSP()
-//        setImageButtonListener()
-//        setEditButtonListener()
-//
-//        return binding.root
+
     }
 
     private fun initSP() {
@@ -74,7 +67,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setEditButtonListener() {
-
         viewF.apply {
             fabProfileEdit.backgroundTintList = ColorStateList.valueOf(Color.rgb(10,34, 27))
             fabProfileEdit.setOnClickListener {
@@ -84,7 +76,6 @@ class ProfileFragment : Fragment() {
                     dontdo = true
                 }
                 if (!dontdo) {
-
                     isEdited = !isEdited
                     if (isEdited) {
                         editMode()
@@ -94,14 +85,12 @@ class ProfileFragment : Fragment() {
                     }
                 }
             }
-
         }
     }
 
     private fun setImageButtonListener() {
         viewF.apply {
             try {
-
                 startforResultGalley =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                     if(it!=null) {
                         val img = it.data?.data
@@ -124,9 +113,7 @@ class ProfileFragment : Fragment() {
                 }
             }
             catch (e: Exception) {
-
             }
-
         }
     }
 

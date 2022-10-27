@@ -25,9 +25,7 @@ class ArticleAdapter(private val articleList: List<Article>): RecyclerView.Adapt
             val intent = Intent(holder.view.context, ArticleDetail::class.java)
             intent.putExtra("link", articleList[position].link)
             holder.view.context.startActivity(intent)
-//            val bundle = Bundle()
-//            bundle.putString("link", articleList[position].link)
-           // findNavController.navigate(R.id.action_articleFragment_to_articleDetailFragment, bundle)
+
         }
     }
 

@@ -18,4 +18,5 @@ class OnboardingPagerAdapter(fa: FragmentManager, lifecycle: Lifecycle) : Fragme
 
         return CreateProfileFragment()
     }
+
 }

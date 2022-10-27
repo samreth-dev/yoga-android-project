@@ -20,8 +20,9 @@ class YogaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_yoga, container, false)
-        // Inflate the layout for this fragment
+
         val gson = Gson()
 
         val yogas = ArrayList<Yoga>()

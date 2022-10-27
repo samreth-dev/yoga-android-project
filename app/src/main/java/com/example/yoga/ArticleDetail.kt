@@ -8,9 +8,11 @@ class ArticleDetail() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_detail)
+
         wvDetailArticle.loadUrl(intent.getStringExtra("link")?:"")
         btnArticle.setOnClickListener {
             finish()
         }
+
     }
 }

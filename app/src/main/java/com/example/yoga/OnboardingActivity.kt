@@ -14,8 +14,10 @@ import kotlinx.android.synthetic.main.activity_onboarding.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class OnboardingActivity : AppCompatActivity() {
+
     private lateinit var viewPager: ViewPager2
     private var tabIndex = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
@@ -27,7 +29,6 @@ class OnboardingActivity : AppCompatActivity() {
 
         val tabLayout = findViewById<TabLayout>(R.id.tab_indicator)
         TabLayoutMediator(tabLayout, viewPager) { _, _ ->
-
         }.attach()
 
         btn_next.setOnClickListener {
@@ -37,10 +38,16 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun isNew() {
-        var getS = getSharedPreferences("profile", MODE_PRIVATE)
-        if (getS.getBoolean("isnew", false)) {
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        try {
+            var getS = getSharedPreferences("profile", MODE_PRIVATE)
+            if (getS.getBoolean("isnew", false)) {
+                finish()
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        catch (e: Exception) {
         }
     }
+
 }

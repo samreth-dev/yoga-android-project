@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.widget.VideoView
 
 class PlayStateBroadcastingVideoView : VideoView {
+
     interface PlayPauseListener {
         fun onPlay()
         fun onPause()

@@ -10,27 +10,10 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var isEdited = false
-    lateinit var mnavController: NavController
-    private var articleFragment = ArticleFragment()
-    private var calorieLostFragment = CalorieLostFragment()
-    private var yogaIntroFragment = YogaIntroFragment()
-    private var profileFragment = ProfileFragment()
-    private var articleDetailFragment = ArticleDetailFragment()
-
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        setTheme(getPreferences(MODE_PRIVATE).getInt("theme", R.style.Theme_Yoga))
-
-        val localeCode = getPreferences(MODE_PRIVATE).getString("locale", resources.configuration.locale.toLanguageTag().substring(0, 2)) ?: "en"
-        val locale = Locale(localeCode)
-        val config = resources.configuration
-        Locale.setDefault(locale)
-        config.locale = locale
-        // Update new locale settings
-        resources.updateConfiguration(config, resources.displayMetrics)
 
         var manager = supportFragmentManager
         var transaction = manager.beginTransaction()
@@ -43,14 +26,12 @@ class MainActivity : AppCompatActivity() {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, ProfileFragment())
                         transaction.commit()
-                        //PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
                     }
                     R.id.navBtnArticle -> {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, ArticleFragment())
                         transaction.commit()
                     }
-
                     R.id.navBtnCalculator -> {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, CalculatorFragment())
@@ -66,13 +47,6 @@ class MainActivity : AppCompatActivity() {
                         transaction = manager.beginTransaction()
                         transaction.replace(R.id.fcvMain, StatisticsFragment())
                         transaction.commit()
-
-//                        val fragment = StatisticsFragment()
-//                        val transaction = supportFragmentManager.beginTransaction()
-//                        transaction.add(R.id.fcvMain, fragment)
-//                        transaction.commit()
-
-                        // PopupSettingsFragment().show(supportFragmentManager, PopupSettingsFragment.TAG)
                     }
                 }
             }
@@ -84,3 +58,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
+
+//        setTheme(getPreferences(MODE_PRIVATE).getInt("theme", R.style.Theme_Yoga))
+
+//        val localeCode = getPreferences(MODE_PRIVATE).getString("locale", resources.configuration.locale.toLanguageTag().substring(0, 2)) ?: "en"
+//        val locale = Locale(localeCode)
+//        val config = resources.configuration
+//        Locale.setDefault(locale)
+//        config.locale = locale
+//        resources.updateConfiguration(config, resources.displayMetrics)

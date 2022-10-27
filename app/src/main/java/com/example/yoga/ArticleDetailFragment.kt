@@ -6,15 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.yoga.databinding.FragmentArticleDetailBinding
 import kotlinx.android.synthetic.main.fragment_article_detail.view.*
 
 
 class ArticleDetailFragment() : Fragment() {
-
-    private lateinit var binding: FragmentArticleDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,17 +25,6 @@ class ArticleDetailFragment() : Fragment() {
         }
 
         return  view
-
-//        val getLink = arguments?.getString("link")
-//        binding = FragmentArticleDetailBinding.inflate(inflater, container, false)
-//        binding.apply {
-//
-//            btnArticle.setOnClickListener {
-//                findNavController().navigateUp()
-//            }
-//        }
-//
-//        return binding.root
 
     }
 }
